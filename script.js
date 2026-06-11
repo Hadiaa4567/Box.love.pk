@@ -493,6 +493,41 @@ function submitCheckoutForm() {
   // Compile order details text for copy action
   compileOrderDetailsText();
 
+  // Gather details for automated email
+  const emailVal = document.getElementById('chk-email').value.trim();
+  const phoneVal = document.getElementById('chk-phone').value.trim();
+  const addressVal = document.getElementById('chk-address').value.trim();
+  const apartmentVal = document.getElementById('chk-apartment').value.trim();
+  const cityVal = document.getElementById('chk-city').value.trim();
+  const postalVal = document.getElementById('chk-postal').value.trim();
+  const countryVal = document.getElementById('chk-country').value;
+  const fullAddress = `${addressVal}${apartmentVal ? ', ' + apartmentVal : ''}, ${cityVal}${postalVal ? ' - ' + postalVal : ''}, ${countryVal}`;
+
+  let orderTotal = PRICES.box + PRICES.delivery;
+  let addonsList = [];
+  if (state.orderType !== 'simple') {
+    if (state.top) orderTotal += PRICES.top;
+    if (state.inside) orderTotal += PRICES.inside;
+    if (state.addons.fairy) { orderTotal += PRICES.fairy; addonsList.push("Fairy Lights"); }
+    if (state.addons.ribbon) { orderTotal += PRICES.ribbon; addonsList.push("Satin Ribbon & Bow"); }
+  }
+
+  const orderData = {
+    name: fullName,
+    email: emailVal,
+    phone: phoneVal,
+    address: fullAddress,
+    boxType: state.orderType === 'simple' ? 'Simple Black Box' : 'Personalised Box',
+    inkColor: state.inkColor === 'silver' ? 'Silver' : 'Golden',
+    topText: (document.getElementById('ta-top') || {value:''}).value.trim(),
+    insideText: (document.getElementById('ta-inside') || {value:''}).value.trim(),
+    addons: addonsList.join(', ') || 'None',
+    total: orderTotal.toLocaleString()
+  };
+
+  // Dispatch email to Nazi Yaqoob (Owner)
+  sendOrderEmail(orderData);
+
   // Transition to Payment instructions
   document.getElementById('checkoutFormView').style.display = 'none';
   document.getElementById('paymentInstructionsView').style.display = 'block';
@@ -592,6 +627,56 @@ function copyOrderDetails() {
       console.error('Failed to copy text: ', err);
       alert('Could not auto-copy. Please manually select all text in the box and copy it!');
     });
+}
+
+// Send order details email to owner via Web3Forms
+function sendOrderEmail(orderData) {
+  const payload = {
+    access_key: "f3d8291b-afee-4148-880d-5884a4c7cbb0",
+    subject: `New Order from ${orderData.name} - Rs. ${orderData.total}`,
+    from_name: "box.love.pk Store",
+    name: orderData.name,
+    email: orderData.email,
+    phone: orderData.phone,
+    address: orderData.address,
+    box_type: orderData.boxType,
+    ink_color: orderData.inkColor,
+    lid_message: orderData.topText || "(none)",
+    inside_message: orderData.insideText || "(none)",
+    addons: orderData.addons || "(none)",
+    total_amount: `Rs. ${orderData.total}`,
+    message: `A new order has been placed on box.love.pk!\n\n` +
+             `Customer Details:\n` +
+             `- Name: ${orderData.name}\n` +
+             `- Email: ${orderData.email}\n` +
+             `- Phone: ${orderData.phone}\n` +
+             `- Address: ${orderData.address}\n\n` +
+             `Box Configuration:\n` +
+             `- Type: ${orderData.boxType}\n` +
+             `- Ink: ${orderData.inkColor}\n` +
+             `- Lid Text: ${orderData.topText || "N/A"}\n` +
+             `- Inside Text: ${orderData.insideText || "N/A"}\n` +
+             `- Addons: ${orderData.addons || "None"}\n\n` +
+             `Total Amount: Rs. ${orderData.total}`
+  };
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      console.log("Order email sent to owner successfully!");
+    } else {
+      console.error("Failed to send order email:", data.message);
+    }
+  })
+  .catch(err => console.error("Error sending order email:", err));
 }
 
 // LocalStorage Persistence for Checkout Form
