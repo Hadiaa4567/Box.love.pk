@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>box.love.pk — Customized Boxes Made with Love | FSD Based</title>
+<meta name="description" content="Order personalized custom black boxes with golden or silver writing. Handmade with love. Based in Faisalabad, Pakistan. Pay via JazzCash / Easypaisa.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Particles -->
+<div id="particles"></div>
+
+<!-- ========== NAV ========== -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">box<span class="dot">.</span>love<span class="dot">.</span>pk</a>
+  <ul class="nav-links">
+    <li><a href="#showcase">Our Boxes</a></li>
+    <li><a href="#builder">Build Yours</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#payment">How to Order</a></li>
+  </ul>
+  <a href="#builder" class="nav-cta">✨ Order Now</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
+  <div class="hero-blob blob-3"></div>
+  <div class="hero-inner">
+
+    <div class="hero-text">
+      <div class="hero-badge"><span class="badge-dot"></span>🎀 Handmade · FSD Based · Black Luxury Boxes</div>
+      <h1>
+        <span class="highlight">Boxes Made</span><br>
+        with <span class="script">Love</span>
+      </h1>
+      <p class="hero-p">
+        Sometimes the words written on the box mean more than the gift inside...... 💕<br>
+        <span style="font-size: 0.95rem; opacity: 0.85; display: inline-block; margin-top: 0.6rem; font-weight: 500;">
+          📸 Visit our Instagram <a href="https://instagram.com/box.love.pk" target="_blank" style="color: var(--pink-600); text-decoration: underline; font-weight: 700;">highlights section</a> to get more ideas!
+        </span>
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Happy Customers</div></div>
+        <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Rating</div></div>
+        <div class="stat"><div class="stat-num">🖤</div><div class="stat-label">Black &amp; Gold / Silver</div></div>
+      </div>
+      <div class="hero-btns">
+        <a href="#builder" class="btn-primary">✨ Build Your Box</a>
+        <a href="#showcase" class="btn-ghost">See Our Work →</a>
+      </div>
+    </div>
+
+    <!-- Hero 3D Box -->
+    <div class="hero-visual">
+      <div class="sparkle" style="top:5%;left:10%;--s-dur:3s;--s-delay:0s;">✨</div>
+      <div class="sparkle" style="top:15%;right:5%;--s-dur:4s;--s-delay:0.7s;">🌸</div>
+      <div class="sparkle" style="bottom:20%;left:5%;--s-dur:3.5s;--s-delay:1.2s;">💖</div>
+      <div class="sparkle" style="bottom:10%;right:12%;--s-dur:5s;--s-delay:0.3s;">⭐</div>
+      <div class="sparkle" style="top:50%;right:2%;--s-dur:3.2s;--s-delay:1.8s;">🎀</div>
+
+      <div class="box-scene" id="heroBox">
+        <div class="box-body">
+          <div class="face-front box-face"></div>
+          <div class="face-back  box-face"></div>
+          <div class="face-left  box-face"></div>
+          <div class="face-right box-face"></div>
+          <div class="face-bottom box-face"></div>
+        </div>
+        <div class="box-lid">
+          <div class="lid-top">
+            <div class="lid-ribbon-v"></div>
+            <div class="lid-ribbon-h"></div>
+            <div class="lid-bow">🎀</div>
+            <div class="lid-live-text">
+              <span class="gold-writing" id="heroLidText">"You aren't just my universe,<br>you're the gravity<br>that holds it all together"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SHOWCASE ========== -->
+<section class="showcase" id="showcase">
+  <div class="section-header">
+    <div class="section-tag">💝 Our Collection</div>
+    <h2>Boxes Made with <span class="script">Love</span></h2>
+    <p class="section-sub">Every box is a black luxury keepsake with golden or silver handwritten messages — real boxes, real feelings, real love. 🖤✨</p>
+  </div>
+  <div class="showcase-grid">
+
+    <div class="box-card reveal">
+      <div class="card-visual">
+        <div class="card-badge">✨ Best Seller</div>
+        <img src="myman.jpg" alt="My Man Box" class="showcase-img">
+      </div>
+      <div class="card-info">
+        <h3>My Man</h3>
+        <p>Black luxury box with golden handwritten message. Perfect for anniversaries, surprises &amp; special moments.</p>
+      </div>
+    </div>
+
+    <div class="box-card reveal reveal-delay-1">
+      <div class="card-visual">
+        <div class="card-badge">💕 Most Loved</div>
+        <img src="inside.jpg" alt="Custom Box Inside Detailing" class="showcase-img">
+      </div>
+      <div class="card-info">
+        <h3>Custom Box</h3>
+        <p>Write a heartfelt message inside the box lid to express your feelings in a beautiful way.</p>
+      </div>
+    </div>
+
+    <div class="box-card reveal reveal-delay-2">
+      <div class="card-visual">
+        <div class="card-badge">🖤 Simple &amp; Elegant</div>
+        <img src="birthday.jpg" alt="Birthday Box" class="showcase-img">
+      </div>
+      <div class="card-info">
+        <h3>Birthday Box</h3>
+        <p>A premium customized black birthday box with your personalized lid writing in gold or silver.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FAIRY LIGHTS ========== -->
+<div class="lights-strip" aria-hidden="true" id="lightsStrip"></div>
+
+<!-- ========== BUILDER ========== -->
+<section class="builder" id="builder">
+  <div class="section-header">
+    <div class="section-tag">🎁 Make Your Own</div>
+    <h2>Build Your <span class="pink">Custom Box</span></h2>
+    <p class="section-sub">Choose your order type, personalise, and see your box come to life in real-time! 🖤✨</p>
+  </div>
+
+  <div class="builder-layout">
+    <!-- LEFT: Steps -->
+    <div>
+
+      <!-- STEP 1: ORDER TYPE -->
+      <div class="builder-step reveal" id="step1">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Choose Your Order Type</h3>
+            <p>Just a box, or a personalised masterpiece?</p>
+          </div>
+        </div>
+
+        <div class="order-type-grid">
+          <!-- Simple Box -->
+          <div class="order-type-card" id="ot-simple" onclick="selectOrderType('simple')">
+            <div class="ot-check">✓</div>
+            <span class="ot-icon">🖤</span>
+            <div class="ot-title">Simple Black Box</div>
+            <div class="ot-desc">Just the premium black box with delivery. Add optional lights or ribbon.</div>
+            <div class="ot-price">Rs. 1,600 + DC</div>
+          </div>
+          <!-- Custom Box -->
+          <div class="order-type-card selected" id="ot-custom" onclick="selectOrderType('custom')">
+            <div class="ot-check">✓</div>
+            <span class="ot-icon">✍️</span>
+            <div class="ot-title">Personalised Box</div>
+            <div class="ot-desc">Write your message in golden or silver ink on top and/or inside the box.</div>
+            <div class="ot-price">Rs. 1,600 + writing</div>
+          </div>
+        </div>
+
+        <!-- Simple box info -->
+        <div id="simpleInfo" style="display:none;margin-top:1.2rem;">
+          <div class="black-box-display">
+            <div class="black-swatch"></div>
+            <div class="black-box-info">
+              <strong>🖤 Simple Black Luxury Box</strong>
+              <span>Clean, elegant — ready for your gift. Add lights or ribbon below.</span>
+            </div>
+            <div class="base-price-badge">
+              <span class="price">Rs. 1,600</span>
+              <span class="label">Base Price</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: WRITING (custom only) -->
+      <div id="customSteps">
+
+        <div class="builder-step reveal reveal-delay-1" id="step2">
+          <div class="step-header">
+            <div class="step-num">2</div>
+            <div>
+              <h3>Write Your Messages</h3>
+              <p>Type and watch your words appear live on the box →</p>
+            </div>
+          </div>
+
+          <!-- Ink Color Selector -->
+          <div style="margin-bottom:1.4rem;">
+            <div style="font-size:0.82rem;font-weight:700;color:var(--dark-2);margin-bottom:0.7rem;">🖊️ Choose Ink Colour</div>
+            <div class="font-color-selector">
+              <label class="fc-opt fc-gold">
+                <input type="radio" name="inkColor" value="gold" checked onchange="setInkColor('gold')">
+                <div class="fc-swatch">✨ Golden</div>
+                <span class="fc-label">Golden Ink</span>
+              </label>
+              <label class="fc-opt fc-silver">
+                <input type="radio" name="inkColor" value="silver" onchange="setInkColor('silver')">
+                <div class="fc-swatch">🩶 Silver</div>
+                <span class="fc-label">Silver Ink</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Top message (optional) -->
+          <div class="msg-block">
+            <div class="msg-label">
+              <div class="msg-label-left">
+                <div class="custom-checkbox" id="cb-top" onclick="toggleMsg('top')"></div>
+                ✍️ Write on Top of Box
+              </div>
+              <span class="msg-price">+ Rs. 250</span>
+            </div>
+            <textarea class="msg-textarea" id="ta-top" rows="3" disabled
+              placeholder="e.g. Happy Birthday Hadia 💕 — your message appears live on the box!"
+              oninput="liveUpdate()" maxlength="200"></textarea>
+            <div class="char-row">
+              <span class="char-count"><span id="cc-top">0</span> / 200</span>
+              <button class="save-btn" id="save-btn-top" onclick="saveMsg('top')" style="display:none;">💾 Save</button>
+            </div>
+          </div>
+
+          <!-- Inside message (optional) -->
+          <div class="msg-block">
+            <div class="msg-label">
+              <div class="msg-label-left">
+                <div class="custom-checkbox" id="cb-inside" onclick="toggleMsg('inside')"></div>
+                📖 Also Write Inside the Box
+              </div>
+              <span class="msg-price">+ Rs. 250</span>
+            </div>
+            <textarea class="msg-textarea" id="ta-inside" rows="4" disabled
+              placeholder="Write a longer message here — pour your heart out! This appears when they open the lid. 💕"
+              oninput="liveUpdate()" maxlength="400"></textarea>
+            <div class="char-row">
+              <span class="char-count"><span id="cc-inside">0</span> / 400</span>
+              <button class="save-btn" id="save-btn-inside" onclick="saveMsg('inside')" style="display:none;">💾 Save</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end #customSteps -->
+
+      <!-- STEP 3: Add-ons (always visible) -->
+      <div class="builder-step reveal reveal-delay-2" id="step3">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Optional Add-ons</h3>
+            <p>Make it even more magical ✨</p>
+          </div>
+        </div>
+        <div class="addon-grid">
+
+          <div class="addon-card" id="ac-fairy" onclick="toggleAddon('fairy')">
+            <div class="addon-checkbox" id="achk-fairy"></div>
+            <div class="addon-icon">🌟</div>
+            <div class="addon-text">
+              <strong>Fairy Lights</strong>
+              <span>Warm golden fairy lights nestled inside — magical when they open it!</span>
+            </div>
+            <div class="addon-price-tag">+ Rs. 300</div>
+          </div>
+
+          <div class="addon-card" id="ac-ribbon" onclick="toggleAddon('ribbon')">
+            <div class="addon-checkbox" id="achk-ribbon"></div>
+            <div class="addon-icon">🎀</div>
+            <div class="addon-text">
+              <strong>Satin Ribbon &amp; Bow</strong>
+              <span>Elegant satin ribbon with a hand-tied bow on top of the box.</span>
+            </div>
+            <div class="addon-price-tag">+ Rs. 50</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- end left column -->
+
+    <!-- RIGHT: Live Preview + Cart -->
+    <div class="preview-panel">
+
+      <!-- LIVE BOX PREVIEW -->
+      <div class="preview-box-wrap">
+        <div id="previewWrap">
+          <!-- rendered by JS: renderPreviewTabs() -->
+        </div>
+      </div>
+
+      <!-- CART -->
+      <div class="cart-box">
+        <div class="cart-head">
+          <div class="cart-title">🛒 Your Order</div>
+          <div class="cart-items-count" id="cartCount">1</div>
+        </div>
+        <div class="cart-rows">
+          <div class="cart-row">
+            <span class="c-label">🖤 Black Luxury Box</span>
+            <span class="c-val">Rs. 1,600</span>
+          </div>
+          <div class="cart-row" id="cr-top" style="display:none;">
+            <span class="c-label">✍️ Writing on Top</span>
+            <span class="c-val">Rs. 250</span>
+          </div>
+          <div class="cart-row" id="cr-inside" style="display:none;">
+            <span class="c-label">📖 Writing Inside</span>
+            <span class="c-val">Rs. 250</span>
+          </div>
+          <div class="cart-row" id="cr-fairy" style="display:none;">
+            <span class="c-label">🌟 Fairy Lights</span>
+            <span class="c-val">Rs. 300</span>
+          </div>
+          <div class="cart-row" id="cr-ribbon" style="display:none;">
+            <span class="c-label">🎀 Ribbon &amp; Bow</span>
+            <span class="c-val">Rs. 50</span>
+          </div>
+          <hr class="cart-divider">
+          <div class="cart-row">
+            <span class="c-label">📦 Delivery</span>
+            <span class="c-val gold">Rs. 400</span>
+          </div>
+        </div>
+        <div class="cart-total-row">
+          <span class="total-label">Total</span>
+          <span class="total-amount" id="cartTotal">Rs. 2,000</span>
+        </div>
+        <div class="cart-note">
+          💳 Advance payment via JazzCash required. Order confirms **ONLY** after you send the receipt screenshot on Instagram DM! 📸
+        </div>
+        <button class="cart-btn" onclick="openModal()">Place Order →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICING TABLE ========== -->
+<section class="payment" id="pricing" style="padding-bottom:0;">
+  <div class="section-header">
+    <div class="section-tag">💰 Price Breakdown</div>
+    <h2 style="color:white;">What's <span style="color:var(--pink-300);">Included</span></h2>
+    <p class="section-sub">Clear, honest pricing — no hidden charges</p>
+  </div>
+  <div class="price-table reveal">
+    <div class="pt-head"><span>Item</span><span>Price</span></div>
+    <div class="pt-row">
+      <span class="pt-item">🖤 Black Luxury Box <span class="pt-badge">Always Included</span></span>
+      <span class="pt-price">Rs. 1,600</span>
+    </div>
+    <div class="pt-row">
+      <span class="pt-item">✍️ Writing on Top <span class="pt-badge">Optional</span></span>
+      <span class="pt-price">Rs. 250</span>
+    </div>
+    <div class="pt-row">
+      <span class="pt-item">📖 Writing Inside <span class="pt-badge">Optional</span></span>
+      <span class="pt-price">Rs. 250</span>
+    </div>
+    <div class="pt-row">
+      <span class="pt-item">✨ Golden Ink <span class="pt-badge">Choose One</span></span>
+      <span class="pt-price">Included</span>
+    </div>
+    <div class="pt-row">
+      <span class="pt-item">🩶 Silver Ink <span class="pt-badge">Choose One</span></span>
+      <span class="pt-price">Included</span>
+    </div>
+    <div class="pt-row">
+      <span class="pt-item">🌟 Fairy Lights <span class="pt-badge">Optional</span></span>
+      <span class="pt-price">Rs. 300</span>
+    </div>
+    <div class="pt-row">
+      <span class="pt-item">🎀 Satin Ribbon &amp; Bow <span class="pt-badge">Optional</span></span>
+      <span class="pt-price">Rs. 50</span>
+    </div>
+    <div class="pt-row" style="background:rgba(212,168,83,0.05);">
+      <span class="pt-item">📦 Delivery Charges <span class="pt-badge">Always Added</span></span>
+      <span class="pt-price">Rs. 400</span>
+    </div>
+    <div class="pt-row" style="background:rgba(194,51,106,0.08);border-top:1px solid rgba(194,51,106,0.2);">
+      <span class="pt-item" style="font-weight:700;color:white;font-size:1rem;">Simple Box (Min Order)</span>
+      <span class="pt-price" style="font-size:1.2rem;">Rs. 2,000</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PAYMENT ========== -->
+<section class="payment" id="payment">
+  <div class="section-header">
+    <div class="section-tag">💳 How to Order</div>
+    <h2 style="color:white;">Simple <span style="color:var(--pink-300);">Payment</span> Process</h2>
+    <p class="section-sub">Advance payment is required. Order confirms **ONLY** after you send the receipt screenshot on Instagram DM! 📸💕</p>
+  </div>
+  <div class="payment-grid">
+
+    <!-- JazzCash only — full width -->
+    <div class="pay-card jazz reveal" style="grid-column:1/-1;max-width:520px;margin:0 auto;width:100%;">
+      <div class="pay-icon" style="background:rgba(0,160,80,0.15);">💚</div>
+      <h3>JazzCash</h3>
+      <p style="margin-bottom:1.4rem;">Send your advance payment via JazzCash to the number below. When you send, you will see the account name — that confirms you're sending to the right place. 🟢</p>
+
+      <div style="display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1.2rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,83,0.2);border-radius:12px;padding:0.8rem 1.2rem;">
+          <span style="color:rgba(255,255,255,0.45);font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Number</span>
+          <span class="pay-number" style="font-size:1.25rem;">0300-6600178</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,83,0.2);border-radius:12px;padding:0.8rem 1.2rem;">
+          <span style="color:rgba(255,255,255,0.45);font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Account Name</span>
+          <span style="color:var(--gold-2);font-weight:800;font-size:1rem;font-family:'Playfair Display',serif;letter-spacing:0.04em;">NAZI YAQOOB</span>
+        </div>
+      </div>
+
+      <div style="background:rgba(0,160,80,0.1);border:1px solid rgba(0,160,80,0.25);border-radius:12px;padding:0.9rem 1.1rem;font-size:0.83rem;color:rgba(255,255,255,0.6);line-height:1.7;text-align:left;">
+        ✅ <strong style="color:rgba(255,255,255,0.85);">Confirmation tip:</strong> When you enter the number in JazzCash, the name <strong style="color:#7FD9A0;">NAZI YAQOOB</strong> will appear — this confirms it's the correct account before you send.
+      </div>
+    </div>
+
+    <div class="pay-process reveal" style="grid-column:1/-1;">
+      <h3>🎀 How Your Order Works</h3>
+      <p>Follow these 4 simple steps — your box will be ready with love 💕</p>
+      <div class="process-steps">
+        <div class="p-step"><div class="p-step-num">01</div><p>Build your box above, write your message &amp; check your order total (includes Rs. 400 delivery).</p></div>
+        <div class="p-step"><div class="p-step-num">02</div><p>Open <strong style="color:var(--gold);">JazzCash</strong>, send the exact total to <strong style="color:var(--gold);">0300-6600178</strong>. Confirm the name <strong style="color:#7FD9A0;">NAZI YAQOOB</strong> appears before sending.</p></div>
+        <div class="p-step"><div class="p-step-num">03</div><p>Take a <strong style="color:white;">screenshot</strong> of your JazzCash receipt and send it via Instagram DM to <a href="https://instagram.com/box.love.pk" target="_blank">@box.love.pk</a></p></div>
+        <div class="p-step"><div class="p-step-num">04</div><p>Once we verify your payment, your order is confirmed ✅ and your box goes into production with lots of love! <span style="color:var(--pink-300);">No refund after confirmation.</span></p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <span class="footer-logo">box.love.pk</span>
+  <p>Customized Black Luxury Boxes with Golden &amp; Silver Writing ♥ Handmade in Faisalabad, Pakistan</p>
+  <p style="margin-top:0.5rem;"><a href="https://instagram.com/box.love.pk" target="_blank">@box.love.pk</a> · Advance payment only · No refund after order confirmation</p>
+  <p style="margin-top:1rem;font-size:0.78rem;">© 2025 box.love.pk — All Rights Reserved</p>
+</footer>
+
+<!-- ========== MODAL ========== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="theModal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+
+    <!-- STEP 1: CHECKOUT VIEW -->
+    <div id="checkoutFormView">
+      <div class="modal-header">
+        <span class="nav-logo">box<span class="dot">.</span>love<span class="dot">.</span>pk</span>
+        <div class="checkout-title">Checkout</div>
+      </div>
+
+      <!-- Collapsible Order Summary -->
+      <div class="checkout-summary-bar" onclick="toggleCheckoutSummary()">
+        <span class="summary-toggle-text">🛒 Show order summary <span class="arrow">▼</span></span>
+        <span class="summary-total-val" id="summaryBarTotal">Rs. 2,000</span>
+      </div>
+
+      <div class="checkout-summary-details collapsed" id="checkoutSummaryDetails">
+        <div id="modalRows"></div>
+        <div class="modal-total" style="border-top: 1px solid var(--pink-100); margin-top: 0.5rem; padding-top: 0.8rem;">
+          <span class="modal-total-label">Total (incl. delivery)</span>
+          <span class="modal-total-val" id="modalTotalVal">Rs. 2,000</span>
+        </div>
+      </div>
+
+      <!-- Checkout Form -->
+      <div class="checkout-form-container">
+        <!-- Contact -->
+        <div class="checkout-section">
+          <div class="checkout-section-title">Contact</div>
+          <input type="email" id="chk-email" placeholder="Email" class="checkout-input" required>
+          <label class="checkout-checkbox-label">
+            <input type="checkbox" id="chk-newsletter" checked>
+            <span>Email me with news and offers</span>
+          </label>
+        </div>
+
+        <!-- Delivery Address -->
+        <div class="checkout-section">
+          <div class="checkout-section-title">Delivery</div>
+          
+          <select id="chk-country" class="checkout-select">
+            <option value="Pakistan">Pakistan</option>
+          </select>
+          
+          <div class="checkout-input-row">
+            <input type="text" id="chk-fname" placeholder="First name (optional)" class="checkout-input">
+            <input type="text" id="chk-lname" placeholder="Last name" class="checkout-input" required>
+          </div>
+          
+          <input type="text" id="chk-address" placeholder="Address" class="checkout-input" required>
+          <input type="text" id="chk-apartment" placeholder="Apartment, suite, etc. (optional)" class="checkout-input">
+          
+          <div class="checkout-input-row">
+            <input type="text" id="chk-city" placeholder="City" class="checkout-input" required>
+            <input type="text" id="chk-postal" placeholder="Postal code (optional)" class="checkout-input">
+          </div>
+          
+          <input type="tel" id="chk-phone" placeholder="Phone" class="checkout-input" required>
+          
+          <label class="checkout-checkbox-label">
+            <input type="checkbox" id="chk-saveinfo" checked>
+            <span>Save this information for next time</span>
+          </label>
+        </div>
+
+        <!-- Shipping Method -->
+        <div class="checkout-section">
+          <div class="checkout-section-title">Shipping method</div>
+          <div class="shipping-method-box">
+            <span class="sm-name">Standard Shipping</span>
+            <strong class="sm-price">Rs. 400</strong>
+          </div>
+        </div>
+
+        <!-- Payment Method (Only JazzCash Advance Payment) -->
+        <div class="checkout-section">
+          <div class="checkout-section-title">Payment</div>
+          <p class="checkout-section-subtitle">All transactions are secure and encrypted.</p>
+          
+          <div class="payment-method-container">
+            <div class="payment-method-header">
+              <label class="checkout-radio-label">
+                <input type="radio" name="checkoutPayment" checked disabled>
+                <span class="radio-custom-dot"></span>
+                <strong>Advance Payment (JazzCash)</strong>
+              </label>
+              <span class="lock-icon">🔒</span>
+            </div>
+            <div class="payment-method-desc">
+              <p>Advance payment only via JazzCash to <strong>0300-6600178</strong> (Account Name: <strong>NAZI YAQOOB</strong>).</p>
+              <p class="cod-disabled-msg">❌ Cash on Delivery (COD) is not available. Verification is done after payment.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing address section removed -->
+
+        <button class="complete-order-btn" onclick="submitCheckoutForm()">Complete order</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: POST-CHECKOUT PAYMENT VIEW -->
+    <div id="paymentInstructionsView" style="display: none;">
+      <div class="modal-title" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; font-size: 2.2rem;">
+        <span>🎀</span> Order Placed!
+      </div>
+      <p class="modal-sub" style="text-align: center; margin-bottom: 1.4rem; line-height: 1.6;">
+        Thank you, <span id="customerNameSpan" style="color: var(--pink-500); font-weight: 700;"></span>! Your checkout is complete.<br>
+        <strong style="color: var(--pink-600); display: block; margin-top: 0.4rem;">⚠️ Note: Your order will be confirmed ONLY after you send the payment receipt screenshot on Instagram DM! 📸</strong>
+      </p>
+
+      <!-- JazzCash Payment Block -->
+      <div style="background:linear-gradient(135deg,#0A1F12,#0F2A18);border:1px solid rgba(0,160,80,0.3);border-radius:18px;padding:1.4rem 1.5rem;margin:1.2rem 0;">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">
+          <span style="font-size:1.4rem;">💚</span>
+          <strong style="color:#7FD9A0;font-size:1rem;">Pay via JazzCash</strong>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:0.65rem 1rem;">
+            <span style="font-size:0.78rem;color:rgba(255,255,255,0.45);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Number</span>
+            <span style="font-size:1.15rem;font-weight:800;color:#FFE08A;font-family:'Playfair Display',serif;letter-spacing:0.06em;">0300-6600178</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:0.65rem 1rem;">
+            <span style="font-size:0.78rem;color:rgba(255,255,255,0.45);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Account Name</span>
+            <span style="font-size:0.97rem;font-weight:800;color:#7FD9A0;letter-spacing:0.04em;">NAZI YAQOOB</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:0.65rem 1rem;">
+            <span style="font-size:0.78rem;color:rgba(255,255,255,0.45);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Amount to Send</span>
+            <span style="font-size:1.1rem;font-weight:800;color:#FFE08A;font-family:'Playfair Display',serif;" id="modalAmountHighlight">Rs. 2,000</span>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,160,80,0.12);border:1px solid rgba(0,160,80,0.2);border-radius:10px;padding:0.75rem 1rem;font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.7;">
+          ✅ <strong style="color:#7FD9A0;">Verification Note:</strong> Enter the number above in JazzCash and make sure the name <strong style="color:white;">NAZI YAQOOB</strong> appears before sending payment.
+        </div>
+      </div>
+
+      <!-- Instagram DM Step -->
+      <div style="background:linear-gradient(135deg,#1F0A1A,#2A1020);border:1px solid rgba(194,51,106,0.3);border-radius:18px;padding:1.2rem 1.5rem;margin-bottom:1.2rem;">
+        <div style="display:flex;align-items:flex-start;gap:0.8rem;">
+          <span style="font-size:1.6rem;flex-shrink:0;">📸</span>
+          <div>
+            <strong style="color:var(--pink-200);font-size:0.95rem;display:block;margin-bottom:0.3rem;">Send Payment Screenshot</strong>
+            <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:0.8rem;">Take a screenshot of your successful transaction receipt and send it to us on Instagram. We will verify and begin creating your customized box! 💕</p>
+            <a href="https://instagram.com/box.love.pk" target="_blank"
+              style="display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#C2336A,#9B2452);color:white;padding:0.6rem 1.4rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.85rem;box-shadow:0 4px 15px rgba(194,51,106,0.4);">
+              📩 DM us on Instagram @box.love.pk
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:0.75rem;color:var(--text-light);text-align:center;line-height:1.6;margin-top: 1rem;">⚠️ Order confirms only after payment receipt verification. No refund after confirmation.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
