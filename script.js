@@ -490,6 +490,9 @@ function submitCheckoutForm() {
   const fullName = fname ? `${fname} ${lname}` : lname;
   document.getElementById('customerNameSpan').textContent = fullName;
 
+  // Compile order details text for copy action
+  compileOrderDetailsText();
+
   // Transition to Payment instructions
   document.getElementById('checkoutFormView').style.display = 'none';
   document.getElementById('paymentInstructionsView').style.display = 'block';
@@ -497,6 +500,98 @@ function submitCheckoutForm() {
   // Scroll modal back to top
   const modal = document.querySelector('.modal');
   if (modal) modal.scrollTop = 0;
+}
+
+// Compile order details text block
+function compileOrderDetailsText() {
+  const email = document.getElementById('chk-email').value.trim();
+  const fname = document.getElementById('chk-fname').value.trim();
+  const lname = document.getElementById('chk-lname').value.trim();
+  const fullName = fname ? `${fname} ${lname}` : lname;
+  const address = document.getElementById('chk-address').value.trim();
+  const apartment = document.getElementById('chk-apartment').value.trim();
+  const city = document.getElementById('chk-city').value.trim();
+  const postal = document.getElementById('chk-postal').value.trim();
+  const phone = document.getElementById('chk-phone').value.trim();
+  const country = document.getElementById('chk-country').value;
+  
+  const topText = (document.getElementById('ta-top') || {value:''}).value.trim();
+  const insideText = (document.getElementById('ta-inside') || {value:''}).value.trim();
+  
+  let total = PRICES.box + PRICES.delivery;
+  let summaryLines = [];
+  
+  summaryLines.push(`- Box: Black Luxury Box`);
+  
+  if (state.orderType === 'simple') {
+    summaryLines.push(`- Type: Simple Black Box`);
+  } else {
+    summaryLines.push(`- Type: Personalised Box`);
+    summaryLines.push(`- Ink Colour: ${state.inkColor === 'silver' ? 'Silver' : 'Golden'}`);
+    if (state.top) {
+      summaryLines.push(`- Lid Message: "${topText}"`);
+      total += PRICES.top;
+    }
+    if (state.inside) {
+      summaryLines.push(`- Inside Message: "${insideText}"`);
+      total += PRICES.inside;
+    }
+    if (state.addons.fairy) {
+      summaryLines.push(`- Addon: Fairy Lights (Rs. 300)`);
+      total += PRICES.fairy;
+    }
+    if (state.addons.ribbon) {
+      summaryLines.push(`- Addon: Satin Ribbon & Bow (Rs. 50)`);
+      total += PRICES.ribbon;
+    }
+  }
+  
+  const formattedTotal = 'Rs. ' + total.toLocaleString();
+
+  let text = `🎀 ORDER DETAILS - box.love.pk 🎀\n`;
+  text += `----------------------------------\n`;
+  text += `👤 Customer: ${fullName}\n`;
+  text += `📧 Email: ${email}\n`;
+  text += `📞 Phone: ${phone}\n`;
+  text += `📍 Delivery Address:\n`;
+  text += `   ${address}${apartment ? ', ' + apartment : ''}\n`;
+  text += `   ${city}${postal ? ' - ' + postal : ''}, ${country}\n\n`;
+  text += `📦 Box Configuration:\n`;
+  text += summaryLines.join('\n') + `\n\n`;
+  text += `💰 Total Amount: ${formattedTotal} (incl. Rs. 400 delivery)\n`;
+  text += `----------------------------------\n`;
+  text += `(Pasted from box.love.pk - sending screenshot receipt next!)`;
+  
+  const ta = document.getElementById('orderDetailsTextarea');
+  if (ta) ta.value = text;
+}
+
+// Copy order details block to clipboard
+function copyOrderDetails() {
+  const ta = document.getElementById('orderDetailsTextarea');
+  if (!ta) return;
+  
+  ta.select();
+  ta.setSelectionRange(0, 99999); // For mobile devices
+  
+  navigator.clipboard.writeText(ta.value)
+    .then(() => {
+      const btn = document.getElementById('btnCopyDetails');
+      if (btn) {
+        btn.style.background = 'linear-gradient(135deg,#1A3A20,#0F2015)';
+        btn.style.borderColor = 'rgba(127,217,160,0.3)';
+        btn.innerHTML = '<span>✅</span> Copied successfully!';
+        setTimeout(() => {
+          btn.style.background = '';
+          btn.style.borderColor = '';
+          btn.innerHTML = '<span>📋</span> Copy Details to Clipboard';
+        }, 2500);
+      }
+    })
+    .catch(err => {
+      console.error('Failed to copy text: ', err);
+      alert('Could not auto-copy. Please manually select all text in the box and copy it!');
+    });
 }
 
 // LocalStorage Persistence for Checkout Form
