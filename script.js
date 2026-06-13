@@ -10,7 +10,7 @@ const state = {
 };
 
 const PRICES = {
-  box: 1600, top: 300, inside: 600,
+  box: 1500, top: 400, inside: 300,
   fairy: 300, ribbon: 100, delivery: 400
 };
 
@@ -370,7 +370,7 @@ function openModal() {
   let total = PRICES.box + PRICES.delivery;
   let rows  = '';
 
-  rows += `<div class="order-row"><span class="or-key">Black Luxury Box</span><span class="or-val">Rs. 1,600</span></div>`;
+  rows += `<div class="order-row"><span class="or-key">Black Luxury Box</span><span class="or-val">Rs. 1,500</span></div>`;
 
   if (state.orderType === 'simple') {
     rows += `<div class="order-row"><span class="or-key">Type</span><span class="or-val">Simple Black Box</span></div>`;
