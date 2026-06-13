@@ -159,7 +159,7 @@ function renderPreviewTabs() {
     </div>
 
     <!-- 3D Scene -->
-    <div class="box-3d-scene">
+    <div class="box-3d-scene" id="boxScene3d">
       <div class="box-3d-shadow"></div>
 
       <div class="box-3d-root" id="box3dRoot">
@@ -167,29 +167,56 @@ function renderPreviewTabs() {
         <!-- LID (hinged at top back) -->
         <div class="box-lid" id="boxLid">
           <div class="lid-face lid-top">
-            <div class="lid-ribbon-v"></div>
-            <div class="lid-ribbon-h"></div>
+            <div class="ribbon-line ribbon-v" style="height: 100%; top: 0;"></div>
+            <div class="ribbon-line ribbon-h" style="width: 100%; left: 0;"></div>
+            <!-- 3D Ribbon Bow -->
+            <div class="box-bow">
+              <div class="bow-loop bow-loop-left"></div>
+              <div class="bow-loop bow-loop-right"></div>
+              <div class="bow-center"></div>
+              <div class="bow-tail bow-tail-left"></div>
+              <div class="bow-tail bow-tail-right"></div>
+            </div>
             <div class="lid-top-text">
               <span class="live-gold-text placeholder-gold" id="liveTopText" style="font-size:1rem;">Tap ✍️ Write on Top above<br>to see your message here ✨</span>
             </div>
           </div>
-          <div class="lid-face lid-front"></div>
-          <div class="lid-face lid-back"></div>
-          <div class="lid-face lid-left"></div>
-          <div class="lid-face lid-right"></div>
+          <div class="lid-face lid-front">
+            <div class="ribbon-line ribbon-v" style="height: 100%; top: 0;"></div>
+          </div>
+          <div class="lid-face lid-back">
+            <div class="ribbon-line ribbon-v" style="height: 100%; top: 0;"></div>
+          </div>
+          <div class="lid-face lid-left">
+            <div class="ribbon-line ribbon-h" style="width: 100%; left: 0; top: 50%; height: 16px; transform: translateY(-50%);"></div>
+          </div>
+          <div class="lid-face lid-right">
+            <div class="ribbon-line ribbon-h" style="width: 100%; left: 0; top: 50%; height: 16px; transform: translateY(-50%);"></div>
+          </div>
         </div>
 
         <!-- BASE -->
         <div class="box-base">
           <div class="b-face b-front">
+            <div class="ribbon-line ribbon-v" style="height: 100%; top: 0;"></div>
+            <div class="ribbon-line ribbon-h" style="width: 100%; left: 0; top: 50%; height: 24px; transform: translateY(-50%);"></div>
             <div class="b-front-text">
               <span style="font-family:'Dancing Script',cursive;font-size:0.8rem;color:rgba(255,255,255,0.15);letter-spacing:0.15em;">box.love.pk</span>
             </div>
           </div>
-          <div class="b-face b-back"></div>
-          <div class="b-face b-left"></div>
-          <div class="b-face b-right"></div>
-          <div class="b-face b-bottom"></div>
+          <div class="b-face b-back">
+            <div class="ribbon-line ribbon-v" style="height: 100%; top: 0;"></div>
+            <div class="ribbon-line ribbon-h" style="width: 100%; left: 0; top: 50%; height: 24px; transform: translateY(-50%);"></div>
+          </div>
+          <div class="b-face b-left">
+            <div class="ribbon-line ribbon-h" style="width: 100%; left: 0; top: 50%; height: 24px; transform: translateY(-50%);"></div>
+          </div>
+          <div class="b-face b-right">
+            <div class="ribbon-line ribbon-h" style="width: 100%; left: 0; top: 50%; height: 24px; transform: translateY(-50%);"></div>
+          </div>
+          <div class="b-face b-bottom">
+            <div class="ribbon-line ribbon-v" style="height: 100%; top: 0;"></div>
+          </div>
           <!-- Inside lining (visible when lid open) -->
           <div class="box-inside-lining">
             <div class="inside-text-layer">
@@ -201,10 +228,12 @@ function renderPreviewTabs() {
       </div><!-- /box-3d-root -->
 
       <div class="box-status-label" id="boxStatusLabel">✨ Live Preview — Personalised Black Luxury Box</div>
+      <div style="font-size:0.65rem; color:var(--text-light); margin-top:2.2rem; opacity:0.85; letter-spacing:0.05em; display:flex; align-items:center; gap:4px; justify-content:center; pointer-events:none; z-index:3;"><span>Drag box to rotate and spin</span> 🔄</div>
     </div>`;
 
   // Attach card-tilt to showcase & pay cards
   initTiltEffect();
+  init3DDrag();
 }
 
 /* =====================================================
@@ -672,6 +701,68 @@ function toggleMenu() {
   } else {
     nav.style.display = 'none';
   }
+}
+
+/* =====================================================
+   3D BOX ROTATE & DRAG LISTENER
+===================================================== */
+function init3DDrag() {
+  const scene = document.getElementById('boxScene3d');
+  const box = document.getElementById('box3dRoot');
+  if (!scene || !box) return;
+
+  let isDragging = false;
+  let startX = 0, startY = 0;
+  let rotX = 20;
+  let rotY = -30;
+
+  const startDrag = (e) => {
+    isDragging = true;
+    box.style.animation = 'none';
+    box.style.transition = 'none';
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    startX = clientX;
+    startY = clientY;
+  };
+
+  const doDrag = (e) => {
+    if (!isDragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+    const deltaX = clientX - startX;
+    const deltaY = clientY - startY;
+
+    rotY += deltaX * 0.6;
+    rotX -= deltaY * 0.6;
+
+    // Constrain X rotation to reasonable viewing angles
+    if (rotX > 75) rotX = 75;
+    if (rotX < -15) rotX = -15;
+
+    box.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+    startX = clientX;
+    startY = clientY;
+
+    // Prevent scrolling when dragging on mobile
+    if (e.cancelable) e.preventDefault();
+  };
+
+  const stopDrag = () => {
+    if (!isDragging) return;
+    isDragging = false;
+    box.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+  };
+
+  scene.addEventListener('mousedown', startDrag);
+  window.addEventListener('mousemove', doDrag);
+  window.addEventListener('mouseup', stopDrag);
+
+  scene.addEventListener('touchstart', startDrag, { passive: false });
+  window.addEventListener('touchmove', doDrag, { passive: false });
+  window.addEventListener('touchend', stopDrag);
 }
 
 /* =====================================================
